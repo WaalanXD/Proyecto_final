@@ -5,6 +5,12 @@ SLR(1), y un evaluador de SDD por grafo de dependencias, siguiendo
 Aho et al., *Compilers: Principles, Techniques, and Tools* (2nd Edition),
 Secciones 4.4, 4.5, 4.6, 5.1 y 5.2.
 
+> **Nota sobre el entregable:** para esta sección del curso no se exige
+> informe PDF; el trabajo se sustenta de forma presencial explicando y
+> modificando el código en vivo. Este README funciona como guía personal
+> de build/run y como referencia rápida para la sustentación (secciones
+> del libro seguidas, decisiones de diseño, pendientes).
+
 ## Group members
 
 - Kenny Daniel Diaz Diaz
@@ -28,8 +34,7 @@ Proyecto_final/
 ├── .gitignore
 ├── src/                        # código fuente (ver detalle abajo)
 ├── tests/                      # gramáticas y cadenas de prueba
-├── docs/                       # notas de diseño de la SDD (Item 3)
-└── report/                     # informe PDF (Item 4) — debe copiarse también a la raíz al entregar
+└── docs/                       # notas de diseño de la SDD (Item 3) — útil para la sustentación oral
 ```
 
 ### `src/`
@@ -92,6 +97,21 @@ el ciclo en lugar de evaluar.
 
 - `(pendiente)`
 
+## Oral defense checklist
+
+Como la sustentación es presencial y en vivo sobre el código, conviene
+tener listo (para cualquier miembro del grupo, el enunciado exige que
+todos puedan responder):
+
+- [ ] Poder señalar, para cada algoritmo, la sección/figura exacta del
+      libro que se siguió (ver tabla de `src/` arriba).
+- [ ] Poder trazar FIRST/FOLLOW, la tabla LL(1) o el automaton LR(0)+tabla
+      SLR(1) a mano sobre una gramática nueva, no solo la propia.
+- [ ] Poder explicar por qué la SDD propia es S-attributed, L-attributed,
+      ambas o ninguna (`docs/sdd_design.md`, Paso 4).
+- [ ] Poder modificar una regla semántica en vivo y mostrar que el
+      evaluador detecta el ciclo resultante (Paso 6 del enunciado).
+
 ## Status / pending work
 
 - [ ] Implementar `grammar.py` (lectura y representación de la gramática).
@@ -102,6 +122,4 @@ el ciclo en lugar de evaluar.
 - [ ] Elegir gramática propia para Items 1–2 (distinta a los ejemplos del enunciado) — ver `tests/README.md`.
 - [ ] Elegir gramática y diseñar la SDD propia para el Item 3 (ver `docs/sdd_design.md`), reemplazando el contenido de `src/sdd.py`.
 - [ ] Completar las pruebas del Item 3 (5+ cadenas, incluyendo caso circular).
-- [ ] Escribir el informe PDF (`report/`) con el contenido de la Sección 4.1 del enunciado.
-- [ ] Copiar el PDF final del informe a la raíz del repositorio antes de entregar.
 - [ ] Completar las secciones "Environment / versions used" y "Generative AI tools used" de este README.
