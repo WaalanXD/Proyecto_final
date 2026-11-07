@@ -1,3 +1,4 @@
+
 # Proyecto Final — Formal Languages (SI2002 / ST0270 / CM0081)
 
 Implementación de los algoritmos de FIRST/FOLLOW, los parsers LL(1) y
@@ -14,7 +15,7 @@ Secciones 4.4, 4.5, 4.6, 5.1 y 5.2.
 ## Group members
 
 - Kenny Daniel Diaz Diaz
-- Salome Bedoya
+- Salome Bedoya Echavarria
 
 ## Environment / versions used
 
@@ -104,13 +105,13 @@ tener listo (para cualquier miembro del grupo, el enunciado exige que
 todos puedan responder):
 
 - [ ] Poder señalar, para cada algoritmo, la sección/figura exacta del
-      libro que se siguió (ver tabla de `src/` arriba).
+  libro que se siguió (ver tabla de `src/` arriba).
 - [ ] Poder trazar FIRST/FOLLOW, la tabla LL(1) o el automaton LR(0)+tabla
-      SLR(1) a mano sobre una gramática nueva, no solo la propia.
+  SLR(1) a mano sobre una gramática nueva, no solo la propia.
 - [ ] Poder explicar por qué la SDD propia es S-attributed, L-attributed,
-      ambas o ninguna (`docs/sdd_design.md`, Paso 4).
+  ambas o ninguna (`docs/sdd_design.md`, Paso 4).
 - [ ] Poder modificar una regla semántica en vivo y mostrar que el
-      evaluador detecta el ciclo resultante (Paso 6 del enunciado).
+  evaluador detecta el ciclo resultante (Paso 6 del enunciado).
 
 ## Status / pending work
 
