@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# LaTeX (mantener solo el .pdf final en report/ y en la raiz)
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Editor / sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

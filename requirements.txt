@@ -1,0 +1,10 @@
+# Este proyecto usa unicamente la libreria estandar de Python (no se
+# permiten generadores de parsers ni librerias de First/Follow/LR, segun
+# las reglas de implementacion del enunciado).
+#
+# Si se desarrolla el visualizador opcional del Item 3 y se decide usar
+# una libreria externa solo para la interfaz grafica (NUNCA para el
+# calculo de First/Follow, tablas LL1/SLR1 o el grafo de dependencias),
+# agregarla aqui con su version. Ejemplo:
+#
+# graphviz==0.20.3
