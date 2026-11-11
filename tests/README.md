@@ -9,25 +9,15 @@ con gramaticas propias.
 | `example1_slr.txt` | Expresiones con +,* y parentesis | `Grammar is SLR(1).` luego `yes`, `yes`, `no` |
 | `example2_ll.txt` | `S -> AB`, `A -> aA | d`, `B -> bBc | e` | `Select a parser...`, con T: `yes`, `yes`, `no`, luego vuelve a preguntar y termina con Q |
 | `example3_neither.txt` | `S -> SS | a` (ambigua, recursiva izq.) | `Grammar is neither LL(1) nor SLR(1).` |
+| `custom_grammar.txt` | Gramática propia: `S -> (L) | x`, `L -> SM`, `M -> SM | e` (listas anidadas entre paréntesis) | `Select a parser...`; con T y con B: `yes`, `yes`, `yes`, `no`, `no` (ver `docs/custom_grammar_design.md`) |
+| `sdd_tests.txt` | Gramática propia del Item 3: `S -> L`, `L -> TL | e`, `T -> +N | -N`, `N -> dN | d` | Ver `docs/sdd_design.md` para el detalle de cada cadena |
 
-## Como ejecutar (una vez main.py este implementado)
+## Como ejecutar
 
 ```powershell
 Get-Content .\tests\example1_slr.txt | python .\src\main.py
 Get-Content .\tests\example2_ll.txt | python .\src\main.py
 Get-Content .\tests\example3_neither.txt | python .\src\main.py
+Get-Content .\tests\custom_grammar.txt | python .\src\main.py
+Get-Content .\tests\sdd_tests.txt | python .\src\main.py --sdd
 ```
-
-## Pendiente de agregar
-
-- `custom_grammar.txt`: gramatica propia (no debe coincidir con las de este
-  documento ni con las del libro) para el informe de los Items 1 y 2, con su
-  FIRST/FOLLOW, tabla LL(1) o automata LR(0)+tabla SLR(1), y una cadena
-  parseada paso a paso.
-- `sdd_tests.txt`: al menos 5 cadenas para el Item 3 (ver `src/sdd.py` una
-  vez tengan su propia gramatica/SDD), incluyendo:
-  - la cadena mas corta del lenguaje,
-  - una cadena que NO pertenezca al lenguaje,
-  - una cadena con anidamiento o recursion profunda,
-  - evidencia de deteccion de SDD circular (modificando temporalmente una
-    regla, segun el Paso 6 del enunciado).

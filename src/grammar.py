@@ -75,16 +75,46 @@ class Grammar:
     def from_lines(cls, lines: list[str]) -> "Grammar":
         """Construye la gramatica a partir de las n lineas de produccion.
 
-        TODO: implementar el parseo real siguiendo el formato de la Seccion 2.2.1:
-            1. Separar cada linea en '<head> -> <alt_1> <alt_2> ...'.
-            2. Registrar el no terminal 'head'.
-            3. Para cada alternativa, separar simbolo por simbolo (sin espacios
-               dentro de la alternativa). Si la alternativa es 'e', es la
-               produccion vacia.
-            4. Clasificar cada simbolo de cada alternativa como terminal o no
-               terminal (mayuscula => no terminal).
+        Cada linea tiene la forma '<head> -> <alt_1> <alt_2> ...', por
+        ejemplo: "B -> bBc e" (dos alternativas: "bBc" y la vacia "e").
+
+        Pasos que seguimos (formato de la Seccion 2.2.1):
+            1. Separamos la linea en el no terminal (head) y las alternativas,
+               usando "->" como separador.
+            2. Registramos ese no terminal.
+            3. Cada alternativa es una palabra sin espacios: la recorremos
+               caracter por caracter para obtener los simbolos de su cuerpo
+               (no hay espacios entre simbolos de una misma alternativa).
+               Si la alternativa es exactamente 'e', es la produccion vacia.
+            4. Un simbolo es no terminal si es una letra mayuscula; de lo
+               contrario es terminal (puede ser letra minuscula, digito o
+               cualquier otro caracter que no sea espacio).
         """
-        raise NotImplementedError
+        gramatica = cls()
+
+        for linea in lines:
+            linea = linea.strip()
+            if not linea:
+                continue
+
+            lado_izquierdo, lado_derecho = linea.split("->")
+            no_terminal = lado_izquierdo.strip()
+            gramatica.nonterminals.add(no_terminal)
+
+            alternativas = lado_derecho.split()
+            for alternativa in alternativas:
+                if alternativa == EPSILON:
+                    cuerpo = (EPSILON,)
+                else:
+                    cuerpo = tuple(alternativa)
+                    for simbolo in cuerpo:
+                        if simbolo.isupper():
+                            gramatica.nonterminals.add(simbolo)
+                        else:
+                            gramatica.terminals.add(simbolo)
+                gramatica.add_production(no_terminal, cuerpo)
+
+        return gramatica
 
     def __str__(self) -> str:
         return "\n".join(str(p) for p in self.productions)
@@ -93,10 +123,14 @@ class Grammar:
 def read_grammar(input_stream) -> Grammar:
     """Lee la gramatica desde un stream (p. ej. sys.stdin).
 
-    Formato:
+    Formato (Seccion 2.2.1):
         linea 1: n (numero de no terminales)
         siguientes n lineas: producciones
-
-    TODO: leer n, luego leer n lineas y delegar a Grammar.from_lines.
     """
-    raise NotImplementedError
+    numero_de_no_terminales = int(input_stream.readline().strip())
+
+    lineas_de_produccion = []
+    for _ in range(numero_de_no_terminales):
+        lineas_de_produccion.append(input_stream.readline())
+
+    return Grammar.from_lines(lineas_de_produccion)

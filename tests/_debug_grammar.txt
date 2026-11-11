@@ -1,0 +1,7 @@
+5
+S -> L
+L -> N C
+C -> ,NC e
+N -> dM
+M -> dM e
+Q

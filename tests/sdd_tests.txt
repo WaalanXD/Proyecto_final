@@ -1,0 +1,13 @@
+4
+S -> L
+L -> TL e
+T -> +N -N
+N -> dN d
+e
++d
++dd-d
+-ddd
++ddd-dd+d-dddd
++d+
+d
+

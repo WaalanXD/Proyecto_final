@@ -1,0 +1,19 @@
+3
+S -> (L) x
+L -> SM
+M -> SM e
+T
+x
+(xx)
+((x)x(xx))
+(x
+)
+
+B
+x
+(xx)
+((x)x(xx))
+(x
+)
+
+Q
