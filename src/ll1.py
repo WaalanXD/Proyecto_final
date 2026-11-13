@@ -3,6 +3,7 @@ from first_follow import first_of_string
 
 
 class LL1ConflictError(Exception):
+    pass
 def build_ll1_table(
     grammar: Grammar,
     first_sets: dict[str, set[str]],
